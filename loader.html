@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+.loader-container {
+  height: 100%;
+  background: #2196f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: bgColorChange 5s infinite;
+}
+
+.outer {
+  position: relative;
+  height: 120px;
+  width: 120px;
+  animation: rotate 2s linear infinite;
+}
+
+.circle {
+  position: absolute;
+  height: 15px;
+  width: 15px;
+  background: white;
+  border-radius: 50%;
+  animation: scale 1s infinite ease-in-out;
+}
+
+.circle:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+.circle:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); animation-delay: 0.2s; }
+.circle:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); animation-delay: 0.4s; }
+.circle:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); animation-delay: 0.6s; }
+.circle:nth-child(5) { top: 50%; left: 50%; animation-delay: 0.8s; }
+
+@keyframes rotate {
+    30%{transform: rotate(220deg);}
+    40%{transform: rotate(450deg);}
+    75%{transform: rotate(720deg); opacity: 1;}
+    76%{opacity:0;;}
+    100%{opacity: 0;}
+
+  
+}
+
+.text {
+  margin-top: 20px;
+  font-size: 25px;
+  color: white;
+}
+
+@keyframes bgColorChange {
+  0%   { background: #2196f3; }
+  20%  { background: #673ab7; }
+  40%  { background: #009688; }
+  60%  { background: #e91e63; }
+  80%  { background: #ff5722; }
+  100% { background: #2196f3; }
+}
+  </style>
+</head>
+<body>
+  <div class="loader-container">
+    <div class="outer">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+
+    </div>
+    <div class="text">Please wait...</div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Wait 5 seconds then redirect
+    setTimeout(() => {
+  window.location.href = "home.html"; // Change to your target page
+   }, 5000);
+  </script>
+</body>
+</html>
